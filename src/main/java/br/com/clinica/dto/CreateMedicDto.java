@@ -1,5 +1,7 @@
 package br.com.clinica.dto;
 
-public record CreateMedicDto() {
+import br.com.clinica.enums.Especialidade;
+
+public record CreateMedicDto(String nome, String email, String crm, Especialidade especialidade, DataAddress dataAddress ) {
   
 }
