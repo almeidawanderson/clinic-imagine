@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.com.clinica.dto.CreateMedicDto;
 import br.com.clinica.models.Medic;
 import br.com.clinica.repository.MedicRepository;
 
@@ -16,8 +18,8 @@ public class MedicoController {
   private MedicRepository medicRepository;
 
   @PostMapping("/")
-  public Medic addMedic(@RequestBody Medic medic){
-    return this.medicRepository.save(medic);
+  public void addMedic(@RequestBody CreateMedicDto data){
+    medicRepository.save(new Medic(data));
   }
 
   

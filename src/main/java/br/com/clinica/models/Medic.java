@@ -1,6 +1,6 @@
 package br.com.clinica.models;
 
-import br.com.clinica.dto.DataAddress;
+import br.com.clinica.dto.CreateMedicDto;
 import br.com.clinica.enums.Especialidade;
 import jakarta.annotation.Generated;
 import jakarta.persistence.Embedded;
@@ -37,7 +37,16 @@ public class Medic {
   private Especialidade especialidade;
   
   @Embedded
-  private DataAddress endereco;
+  private Endereco endereco;
+
+  public Medic(CreateMedicDto data) {
+    this.nome = data.nome();
+    this.email = data.email();
+    this.crm = data.crm();
+    this.especialidade = data.especialidade();
+    this.endereco = new Endereco(data.endereco());
+
+  }
 
 
   

@@ -1,5 +1,6 @@
 package br.com.clinica.models;
 
+import br.com.clinica.dto.DadosEndereco;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,22 +13,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class DataAddress {
+public class Endereco {
 
   private String logradouro;
-
   private String bairro;
-
   private String cep;
-
   private String numero;
-
   private String complemento;
-
   private String cidade;
-
   private String uf;
 
+  public Endereco(DadosEndereco dados) {
+    this.logradouro = dados.logradouro();
+    this.bairro = dados.bairro();
+    this.cep = dados.cep();
+    this.uf = dados.uf();
+    this.cidade = dados.cidade();
+    this.numero = dados.numero();
+    this.complemento = dados.complemento();
+}
+
+ 
 
   
 }
